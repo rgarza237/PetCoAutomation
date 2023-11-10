@@ -21,5 +21,8 @@ When(/^the user move into cart and fill the payment information$/, async () => {
 });
 
 Then(/^The payment should proceed successfully$/, async () => {
-
+    await browser.pause(500)
+    await BuyingPO.orderConfirmation.waitForClickable()
+    await BuyingPO.orderConfirmation.click()
+    await browser.pause(500)
 });

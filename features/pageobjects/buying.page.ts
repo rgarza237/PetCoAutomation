@@ -39,14 +39,20 @@ class BuyingPage {
         return $('input[pattern="[0-9]{15,16}"]')
     }
     get saveCardInfoButton(){
-        return $('button*=Guardar')
+        return $('//*[@id="sp-card-form"]/div[3]/button')
+    }
+    get orderConfirmation(){
+        return $('//*[@id="orderConfirmationPPP"]')
     }
 
     public async addProduct(){
+        await this.productCard.waitForClickable()
         await this.productCard.click()
         await browser.pause(500)
+        await this.addToCart.waitForClickable()
         await this.addToCart.click()
         await browser.pause(500)
+        await this.goToMainPage.waitForClickable()
         await this.goToMainPage.click()
         await browser.pause(500)
       }
@@ -68,9 +74,12 @@ class BuyingPage {
         await this.cardName.setValue('JAMES SKIPS')
         await this.cardNumber.waitForDisplayed()
         await this.cardNumber.setValue('5535115985249456')
+        await browser.pause(500)
         await this.saveCardInfoButton.waitForClickable()
+        await browser.pause(500)
         await this.saveCardInfoButton.click()
-        await browser.pause(3000)
+        await browser.pause(1000)
+        await this.saveCardInfoButton.click()
     }
 }
 
