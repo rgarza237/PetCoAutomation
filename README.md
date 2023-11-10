@@ -8,7 +8,7 @@ This repository contains a WebdriverIO (WDIO) integration with Cucumber and Type
 
 Before setting up the project, ensure you have the following installed:
 
-- Node.js (Preferably the latest LTS version)
+- Node.js (Preferably the latest LTS version, at least 18)
 - A package manager (npm or Yarn)
 - Google Chrome (latest version if possible)
 - An IDE or text editor (e.g., VSCode, Sublime Text)
