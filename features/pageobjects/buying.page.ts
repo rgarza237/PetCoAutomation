@@ -32,6 +32,15 @@ class BuyingPage {
     get nuevaTarjeta(){
         return $('button[type="button"][class*="btn-primary"][ng-click*="showCardForm"]')
     }
+    get cardName(){
+        return $('input[pattern="[a-zñA-ZÑ\' ]{2,40}"]')
+    }
+    get cardNumber(){
+        return $('input[pattern="[0-9]{15,16}"]')
+    }
+    get saveCardInfoButton(){
+        return $('button*=Guardar')
+    }
 
     public async addProduct(){
         await this.productCard.click()
@@ -51,9 +60,17 @@ class BuyingPage {
         await this.confirmarButton.click()
         await this.pagoConTarjeta.waitForDisplayed()
         await this.pagoConTarjeta.click()
+        await browser.pause(400)
         await this.nuevaTarjeta.waitForDisplayed()
         await this.nuevaTarjeta.click()
-        await browser.pause(5000)
+        await browser.pause(300)
+        await this.cardName.waitForDisplayed()
+        await this.cardName.setValue('JAMES SKIPS')
+        await this.cardNumber.waitForDisplayed()
+        await this.cardNumber.setValue('5535115985249456')
+        await this.saveCardInfoButton.waitForClickable()
+        await this.saveCardInfoButton.click()
+        await browser.pause(3000)
     }
 }
 
