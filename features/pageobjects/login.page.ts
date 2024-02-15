@@ -24,8 +24,8 @@ class LoginPage {
     }
 
     public async login(){
-      await this.inputUsername.setValue("mitojai182@hotmail.com");
-      await this.inputPassword.setValue("Petco1234");
+      await this.inputUsername.setValue("your mail or petco id");
+      await this.inputPassword.setValue("your password");
       await this.btnSubmit.click()
     }
 
